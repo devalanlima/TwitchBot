@@ -22,6 +22,9 @@
     "vue-router": "^4.2.5"
   },
   "dependencies": {
+    "@twurple/api": "^7.1.0",
+    "@twurple/auth": "^7.1.0",
+    "@twurple/chat": "^7.1.0",
     "primevue": "^3.52.0"
   }
 }
