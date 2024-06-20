@@ -6,5 +6,16 @@ export default defineNuxtConfig({
   primevue: {
     options: {
     }
-  }
+  },
+  runtimeConfig: {
+    public: {
+      REDIRECT_URI: process.env.NUXT_REDIRECT_URI,
+    },
+    oauth: {
+      twitch: {
+        clientId: process.env.NUXT_OAUTH_TWITCH_CLIENT_ID,
+        clientSecret: process.env.NUXT_OAUTH_TWITCH_CLIENT_SECRET,
+      },
+    }
+  },
 })
