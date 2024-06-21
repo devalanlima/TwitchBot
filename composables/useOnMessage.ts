@@ -1,4 +1,5 @@
-import type { ChatClient, ChatMessage } from "@twurple/chat";
+import { parseChatMessage, type ChatClient, type ChatMessage } from "@twurple/chat";
+import { useGlobalStore } from "~/store/useGlobalStore";
 
 export default function useOnMessage (chatClient: ChatClient, commands: Array<ChatCommand>) {
   let chatListener;
@@ -41,7 +42,11 @@ export default function useOnMessage (chatClient: ChatClient, commands: Array<Ch
     return list[~~(Math.random() * list.length)];
   }
 
+  const globalStore = useGlobalStore();
+
   chatListener = chatClient.onMessage((channel: string, user: string, text: string, msg: ChatMessage)=>{
+    globalStore.messages?.push(parseChatMessage(text, msg.emoteOffsets));
+    
     commands.map((command): void => {
       if (keywordsExistsInText(command.keywordSet, text)) {
         chatClient.say(channel, pickRandom(command.responses));
