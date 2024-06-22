@@ -17,6 +17,19 @@ export default defineNuxtConfig({
       redirectUri: process.env.NUXT_REDIRECT_URI,
       clientId: process.env.NUXT_OAUTH_TWITCH_CLIENT_ID,
       clientSecret: process.env.NUXT_OAUTH_TWITCH_CLIENT_SECRET,
+      scopes: [
+        'channel:bot',
+        'chat:edit',
+        'channel:moderate',
+        'user:bot',
+        'chat:read',
+        'user:write:chat',
+        'whispers:read',
+        'whispers:edit',
+        'user:read:chat',
+        'channel:read:subscriptions',
+        'user:read:follows'
+      ]
     },
   },
 })
