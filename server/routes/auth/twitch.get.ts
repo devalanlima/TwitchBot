@@ -1,16 +1,8 @@
+const { public: runTime } = useRuntimeConfig();
+
 export default oauth.twitchEventHandler({
   config:{
-    scope:[
-      'channel:bot',
-      'chat:edit',
-      'channel:moderate',
-      'user:bot',
-      'chat:read',
-      'user:write:chat',
-      'whispers:read',
-      'whispers:edit',
-      'user:read:chat',
-    ],
+    scope: runTime.scopes as Array<string> ,
     authorizationParams:{
       force_verify: 'true',
     }
