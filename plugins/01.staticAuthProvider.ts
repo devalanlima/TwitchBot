@@ -1,5 +1,6 @@
 import { StaticAuthProvider } from '@twurple/auth';
 import { useUserSession } from '#imports';
+import { useGlobalStore } from '~/store/useGlobalStore';
 
 export default defineNuxtPlugin(async (nuxtApp)=>{
   let { user } = useUserSession()
@@ -7,21 +8,12 @@ export default defineNuxtPlugin(async (nuxtApp)=>{
   const { public: credentials } = useRuntimeConfig()
   const clientId = credentials.clientId;
   const accessToken = user.value?.tokens.access_token
+  const globalStore = useGlobalStore();
 
   let authProvider: StaticAuthProvider | null = null
 
   if (accessToken) {
-    authProvider = new StaticAuthProvider(clientId, accessToken, [
-      'channel:bot',
-      'chat:edit',
-      'channel:moderate',
-      'user:bot',
-      'chat:read',
-      'user:write:chat',
-      'whispers:read',
-      'whispers:edit',
-      'user:read:chat',
-    ]);
+    authProvider = new StaticAuthProvider(clientId, accessToken, credentials.scopes as Array<string>);
   }
 
   return {
