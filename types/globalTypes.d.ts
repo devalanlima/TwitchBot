@@ -14,6 +14,21 @@ declare global {
     keywordSet: KeywordPair;
     responses: Array<string>;
   }
+
+  interface ParsedText {
+    type: 'text' | 'emote',
+    value: string,
+  }
+
+  interface ParsedEmote {
+    type: 'text' | 'emote',
+    value: {
+      src: string,
+      alt: string,
+    }
+  }
+
+  type ParsedMessage = Array<ParsedText | ParsedEmote>
 }
 
 export { };
