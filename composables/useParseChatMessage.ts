@@ -1,9 +1,8 @@
 import { EmoteFetcher, EmoteParser } from "@mkody/twitch-emoticons";
 import { ApiClient } from "@twurple/api";
 import { buildEmoteImageUrl, type ParsedMessagePart } from "@twurple/chat";
-import { useGlobalStore } from "~/store/useGlobalStore";
 
-export default function useParseEmotes(channelId: number, parsedMessagePart: Array<ParsedMessagePart>) {
+export default async function useParseChatMessage(channelId: number, parsedMessagePart: Array<ParsedMessagePart>) {
 
   let text = '';
 
@@ -31,7 +30,7 @@ export default function useParseEmotes(channelId: number, parsedMessagePart: Arr
     match: /(?<!alt=")(\w+)(?!")/g,
   });
 
-  Promise.all([
+  const finalMessage = await Promise.all([
     fetcher.fetchTwitchEmotes(),
     fetcher.fetchTwitchEmotes(channelId),
     fetcher.fetchBTTVEmotes(),
@@ -42,11 +41,10 @@ export default function useParseEmotes(channelId: number, parsedMessagePart: Arr
     fetcher.fetchSevenTVEmotes(),
     fetcher.fetchSevenTVEmotes(channelId, 'webp'),
   ]).then(() => {
+    let result: ParsedMessage = [];
     let parsedText = parser.parse(text);
     
     const regex = /<img alt="([^"]+)" src="([^"]+)">/g;
-    const { messages } = useGlobalStore();
-    let result: ParsedMessage = [];
     let lastIndex = 0;
     let match;
 
@@ -73,11 +71,13 @@ export default function useParseEmotes(channelId: number, parsedMessagePart: Arr
         value: parsedText.slice(lastIndex),
       });
     }
-
-    messages.push(result);
+    
+    return result;
     
   }).catch(err => {
     console.error('Error loading emotes...');
     console.error(err);
   });
+
+  return finalMessage;
 }
