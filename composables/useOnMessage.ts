@@ -1,5 +1,5 @@
-import { parseChatMessage, type ChatClient, type ChatMessage } from "@twurple/chat";
-import useParseEmotes from "./useParseEmotes";
+import { type ChatClient, type ChatMessage } from "@twurple/chat";
+import useStoreMessage from "./useStoreMessage";
 
 export default function useOnMessage (chatClient: ChatClient, commands: Array<ChatCommand>) {
   let chatListener;
@@ -43,15 +43,17 @@ export default function useOnMessage (chatClient: ChatClient, commands: Array<Ch
   };
 
   chatListener = chatClient.onMessage(async (channel: string, user: string, text: string, msg: ChatMessage)=>{
-    useParseEmotes(Number(msg.channelId), parseChatMessage(text, msg.emoteOffsets));
+
+    useStoreMessage(text, msg);
 
     commands.map((command): void => {
       if (keywordsExistsInText(command.keywordSet, text)) {
         const response = pickRandom(command.responses);
         chatClient.say(channel, response);
-        useParseEmotes(Number(msg.channelId), parseChatMessage(response, msg.emoteOffsets));
+        useStoreMessage(response, msg);
       }
     });
 
   });
+
 };
