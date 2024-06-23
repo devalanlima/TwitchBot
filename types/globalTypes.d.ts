@@ -29,6 +29,28 @@ declare global {
   }
 
   type ParsedMessage = Array<ParsedText | ParsedEmote>
+
+  interface CustomUser {
+    badges: {
+      isSubscriber: boolean,
+      isVip: boolean,
+      isBroadcaster: boolean,
+      isModerator: boolean,
+      isFounder: boolean,
+      isArtist: boolean,
+    },
+    username: {
+      color: string | undefined,
+      displayName: string,
+    }
+  }
+
+
+  interface MessageData {
+    user: CustomUser,
+    message: ParsedMessage,
+  }
+
 }
 
 export { };
