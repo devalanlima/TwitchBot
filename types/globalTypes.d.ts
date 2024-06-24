@@ -16,12 +16,12 @@ declare global {
   }
 
   interface ParsedText {
-    type: 'text' | 'emote',
+    type: 'text',
     value: string,
   }
 
   interface ParsedEmote {
-    type: 'text' | 'emote',
+    type: 'emote',
     value: {
       src: string,
       alt: string,
@@ -47,8 +47,10 @@ declare global {
 
 
   interface MessageData {
+    id: string,
     user: CustomUser,
     message: ParsedMessage,
+    time: string,
   }
 
 }
