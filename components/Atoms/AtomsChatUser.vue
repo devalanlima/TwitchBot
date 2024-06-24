@@ -65,6 +65,5 @@ const badgePaths = [
     url: 'https://assets.help.twitch.tv/article/img/000002399-05.png',
   },
 ]
-badges.isArtist
 
 </script>
