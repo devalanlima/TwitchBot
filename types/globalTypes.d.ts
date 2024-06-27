@@ -45,12 +45,15 @@ declare global {
     }
   }
 
-
   interface MessageData {
     id: string,
     user: CustomUser,
     message: ParsedMessage,
     time: string,
+  }
+
+  interface CustomMessage {
+    [key: string]: Array<MessageData>;
   }
 
 }
