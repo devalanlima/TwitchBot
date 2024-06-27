@@ -1,7 +1,7 @@
-import type { ParsedMessagePart } from "@twurple/chat";
-
 export const useGlobalStore = defineStore('global', () => {
-  const messages = ref<Array<MessageData>>([]);
+  const currentChannels = ref<Array<string>>([]);
+  
+  const messages = ref<Array<CustomMessage>>([]);
 
-  return { messages };
+  return { messages, currentChannels };
 })
