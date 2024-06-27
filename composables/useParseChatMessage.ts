@@ -35,7 +35,6 @@ export default async function useParseChatMessage(channelId: number, parsedMessa
     fetcher.fetchTwitchEmotes(channelId),
     fetcher.fetchBTTVEmotes(),
     fetcher.fetchBTTVEmotes(channelId),
-    fetcher.fetchSevenTVEmotes(),
     fetcher.fetchFFZEmotes(),
     fetcher.fetchFFZEmotes(channelId),
     fetcher.fetchSevenTVEmotes(),
