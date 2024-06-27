@@ -1,7 +1,7 @@
 import { type ChatClient, type ChatMessage } from "@twurple/chat";
 import useStoreMessage from "./useStoreMessage";
 
-export default function useOnMessage (chatClient: ChatClient, commands: Array<ChatCommand>) {
+export default function useOnMessage (chatClient: ChatClient, commands?: Array<ChatCommand>) {
   let chatListener;
   chatClient.removeListener(chatListener);
 
@@ -43,17 +43,14 @@ export default function useOnMessage (chatClient: ChatClient, commands: Array<Ch
   };
 
   chatListener = chatClient.onMessage(async (channel: string, user: string, text: string, msg: ChatMessage)=>{
-
-    useStoreMessage(text, msg);
-
-    commands.map((command): void => {
+    useStoreMessage(text, msg, channel);
+    commands && commands.map((command): void => {
       if (keywordsExistsInText(command.keywordSet, text)) {
         const response = pickRandom(command.responses);
         chatClient.say(channel, response);
-        useStoreMessage(response, msg);
+        useStoreMessage(response, msg, channel);
       }
     });
-
   });
 
 };
