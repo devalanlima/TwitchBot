@@ -1,5 +1,6 @@
 <template>
   <div class="h-screen">
+    {{ inputValue }}
     <TabView
     v-model:activeIndex="active"
     class="w-[349px] organisms-chat-display" 
@@ -32,7 +33,11 @@
       <TabPanel v-if="messages.length < 3">
         <template #header>
             <div class="flex gap-2">
-              <input v-if="isAddingChannel" class="placeholder:opacity-50" placeholder="channel" v-model.lazy="inputValue" type="text">
+              <AtomsBaseInput
+                :focus="true"
+                v-if="isAddingChannel"
+                @input-value="handleChannelName"
+              />
               <span v-else>+</span>
             </div>
         </template>
@@ -62,7 +67,11 @@ const leaveChannel = (channel: string) => {
   useLeaveChat($chatClient, channel);
 }
 
-const inputValue = ref<string>('');
+const inputValue = ref<string>();
+
+const handleChannelName = (message: string) => {
+  inputValue.value = message.toLowerCase().trim();
+}
 
 const loading = ref();
 
@@ -109,10 +118,10 @@ onMounted(()=>{
   watch(()=> globalStore.currentChannels, (newValue)=>{
     loading.value = false
     element.value = document.querySelectorAll('.organisms-chat-display .p-tabview-panels');
-    active.value = (currentChannels.value.length -1);
     if (newValue.length === 0) {
       isAddingChannel.value = true;
     }
+    active.value = (currentChannels.value.length -1);
   })
 
   watch(globalStore.messages, ()=>{
