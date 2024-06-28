@@ -29,6 +29,7 @@
     "@twurple/auth": "^7.1.0",
     "@twurple/chat": "^7.1.0",
     "pinia": "^2.1.7",
+    "primeicons": "^7.0.0",
     "primevue": "^3.52.0"
   }
 }
