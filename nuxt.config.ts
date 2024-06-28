@@ -6,6 +6,7 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     "nuxt-auth-utils",
     "@pinia/nuxt",
+    '@vueuse/nuxt',
   ],
   css:["assets/css/theme.css", "assets/css/tailwind.css"],
   primevue: {
