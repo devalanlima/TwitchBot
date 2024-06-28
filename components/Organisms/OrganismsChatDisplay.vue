@@ -12,7 +12,9 @@
         <template #header>
             <div class="flex gap-2">
               <span>{{ channel.slice(1) }}</span>
-              <button class="hover:text-red-500" @click="leaveChannel(channel)">x</button>
+              <button class="hover:text-red-500" @click="leaveChannel(channel)">
+                <i class="pi pi-times text-[11px]"></i>
+              </button>
             </div>
         </template>
         <MoleculesChatMessages
@@ -38,7 +40,7 @@
                 v-if="isAddingChannel"
                 @input-value="handleChannelName"
               />
-              <span v-else>+</span>
+              <i v-else class="pi pi-plus"></i>
             </div>
         </template>
       </TabPanel>
