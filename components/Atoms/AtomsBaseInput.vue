@@ -2,7 +2,7 @@
   <div>
     <input
     ref="$input"
-    class="simple-input max-w-[70px]"
+    class="outline-none placeholder:opacity-60 placeholder:font-thin max-w-[70px] bg-[var(--surface-f)]"
     autofocus
     :class="inputValue.length === 0 && 'animate-pulse'"
     v-model="inputValue"
@@ -40,9 +40,3 @@ onClickOutside($input, ()=>{
 })
 
 </script>
-
-<style scoped>
-.simple-input{
-  @apply outline-none placeholder:opacity-60 placeholder:font-thin;
-}
-</style>
