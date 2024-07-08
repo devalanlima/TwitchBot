@@ -109,7 +109,7 @@ onMounted(()=>{
   watch(()=> active.value, (newValue)=>{
     if (newValue === currentChannels.value.length) {
       isAddingChannel.value = true;
-    } else {
+    } else if(currentChannels.value.length > 0) {
       isAddingChannel.value = false;
     };
 
