@@ -1,3 +1,5 @@
+import type { ChatMessage, ChatUser } from "@twurple/chat";
+
 declare global {
 
   interface Keyword {
@@ -31,29 +33,37 @@ declare global {
   type ParsedMessage = Array<ParsedText | ParsedEmote>
 
   interface CustomUser {
-    badges: {
-      isSubscriber: boolean,
-      isVip: boolean,
-      isBroadcaster: boolean,
-      isModerator: boolean,
-      isFounder: boolean,
-      isArtist: boolean,
-    },
-    username: {
-      color: string | undefined,
-      displayName: string,
-    }
+    displayName: string,
+    color: string | undefined,
+    isBot: boolean,
+    isBroadcaster: boolean,
+    isMod: boolean,
+    isSubscriber: boolean,
+    isVip: boolean,
+    isFounder: boolean,
+    isArtist: boolean,
   }
 
   interface MessageData {
     id: string,
+    time: Date,
     user: CustomUser,
-    message: ParsedMessage,
-    time: string,
+    data: ParsedMessage,
   }
 
-  interface CustomMessage {
-    [key: string]: Array<MessageData>;
+  interface ChatData {
+    [key: string]: Array<MessageData>,
+  }
+
+  interface EmotesResponse {
+    "provider": 0 | 1 | 2 | 3,
+    "code": string,
+    "urls": [
+      {
+        "size": '1x' | '2x' | '3x' | '4x',
+        "url": string
+      }
+    ]
   }
 
 }
