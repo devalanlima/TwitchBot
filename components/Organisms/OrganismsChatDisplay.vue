@@ -1,9 +1,9 @@
 <template>
-  <div class="h-screen">
-    {{ inputValue }}
+  <div class="h-screen bg-[var(--surface-f)]">
     <TabView
     v-model:activeIndex="active"
-    class="w-[349px] organisms-chat-display" 
+    class="w-full organisms-chat-display min-h-[120px]" 
+    :style="`height: calc(100% - ${height + 16}px)`"
     :scrollable="true"
     @mouseenter="isMouseOver = true" 
     @mouseleave="isMouseOver = false"
@@ -18,8 +18,9 @@
             </div>
         </template>
         <MoleculesChatMessages
-        :currentChannel="channel.slice(1)"
-        :messages="messages.find(currentChannel => currentChannel.hasOwnProperty(channel)) ? messages[messages.findIndex(currentChannel => currentChannel.hasOwnProperty(channel))][channel] : []"
+        class="mx-auto w-full"
+          v-if="globalStore.chatMessages[channel.slice(1)]"
+          :messages="globalStore.chatMessages[channel.slice(1)]"
         />
       </TabPanel>
       <TabPanel v-if="loading">
@@ -32,7 +33,7 @@
           />
         </template>
       </TabPanel>
-      <TabPanel v-if="messages.length < 3">
+      <TabPanel v-if="globalStore.currentChannels.length < 3">
         <template #header>
             <div class="flex gap-2">
               <AtomsBaseInput
@@ -40,23 +41,32 @@
                 v-if="isAddingChannel"
                 @input-value="handleChannelName"
               />
-              <i v-else class="pi pi-plus"></i>
+              <i v-else class="pi pi-plus text-lg"></i>
             </div>
         </template>
       </TabPanel>
     </TabView>
+
+    <div>
+      <AtomsSendMessage
+      ref="$atomsSendMessage"
+      @input-value="handleTextAreaMessage"
+      />
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
 
+import type { ChatClient } from '@twurple/chat';
 import { useGlobalStore } from '~/store/useGlobalStore';
 
 const { $chatClient } = useNuxtApp();
 
+const chatClient = $chatClient as ChatClient;
+
 const globalStore = useGlobalStore();
 
-const messages = computed(()=>globalStore.messages);
 const currentChannels = computed<Array<string>>(()=> globalStore.currentChannels);
 
 const channelsToAdd = ref<Array<string>>([]);
@@ -66,7 +76,7 @@ const active = ref<number>(0);
 const isAddingChannel = ref<boolean>(true);
 
 const leaveChannel = (channel: string) => {
-  useLeaveChat($chatClient, channel);
+  useLeaveChat(chatClient, channel);
 }
 
 const inputValue = ref<string>();
@@ -79,18 +89,21 @@ const loading = ref();
 
 const channelCookies = useCookie<Array<string>>('channelCookies');
 
-const element = ref<NodeListOf<HTMLElement> | null>(null);
+const element = ref<HTMLElement | null>(null);
   
 const isMouseOver = ref<boolean>(false);
 
-onMounted(()=>{
-  active.value = currentChannels.value.length - 2
 
-  element.value = document.querySelectorAll('.organisms-chat-display .p-tabview-panels');
+const $atomsSendMessage = ref<HTMLElement | null>(null);
+const { height } = useElementSize($atomsSendMessage)
+
+onMounted(()=>{
+  element.value = document.querySelector('.p-tabview-panels');
+  active.value = currentChannels.value.length - 2;
 
   if (channelCookies.value) {    
     channelCookies.value;
-    useJoinSeveralChats($chatClient, channelCookies.value);
+    useJoinSeveralChats(chatClient, channelCookies.value);
   }
 
   watch(()=> active.value, (newValue)=>{
@@ -101,16 +114,16 @@ onMounted(()=>{
     };
 
     setTimeout(() => {
-      element.value?.forEach(function(element) {
-        element.scrollTop = element.scrollHeight;
-      });
-    }, 0);
+      if (element.value) {
+        element.value.scrollTop = element.value.scrollHeight;
+      };
+    }, 0);  
   });
 
   watch(()=> inputValue.value, (newValue) => {
     if (newValue) {
       channelsToAdd.value.push(`#${newValue}`);
-      loading.value = useJoinSeveralChats($chatClient, channelsToAdd.value);
+      loading.value = useJoinSeveralChats(chatClient, channelsToAdd.value);
     };
       channelsToAdd.value = [];
       isAddingChannel.value = false;
@@ -118,34 +131,38 @@ onMounted(()=>{
   });
 
   watch(()=> globalStore.currentChannels, (newValue)=>{
-    loading.value = false
-    element.value = document.querySelectorAll('.organisms-chat-display .p-tabview-panels');
+    loading.value = false;
     if (newValue.length === 0) {
       isAddingChannel.value = true;
     }
     active.value = (currentChannels.value.length -1);
-  })
-
-  watch(globalStore.messages, ()=>{
-    if (!isMouseOver.value) {
-      setTimeout(() => {
-        element.value?.forEach(function(element) {
-          element.scrollTop = element.scrollHeight;
-        });
-      }, 0);    
-    }
   });
+
 });
+
+watch(
+  () => globalStore.chatMessages,
+  () => {
+    setTimeout(() => {
+      if (element.value && !isMouseOver.value) {
+        element.value.scrollTop = element.value.scrollHeight;
+      }
+    }, 0);  
+  },
+  { deep: true }
+);
+
+const handleTextAreaMessage = (message: string) => {
+  const channel = currentChannels.value[active.value].slice(1); 
+  useSayChat(chatClient, message, channel);
+}
 
 </script>
 
 <style>
+
 .organisms-chat-display .p-tabview-panels{
   @apply p-0;
-}
-
-.organisms-chat-display{
-    @apply h-full min-h-[120px];
 }
 
 .organisms-chat-display .p-tabview-panels{
