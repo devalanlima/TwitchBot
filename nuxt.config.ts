@@ -29,7 +29,8 @@ export default defineNuxtConfig({
         'whispers:edit',
         'user:read:chat',
         'channel:read:subscriptions',
-        'user:read:follows'
+        'user:read:follows',
+        'user:read:subscriptions',
       ]
     },
   },
