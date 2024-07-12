@@ -12,9 +12,15 @@ declare global {
     secondKeywordSet?: Array<Keyword>;
   }
 
+  interface CommandResponse {
+    id: number, 
+    response: string
+  }
+
   interface ChatCommand {
+    name: string,
     keywordSet: KeywordPair;
-    responses: Array<string>;
+    responses: Array<CommandResponse>;
   }
 
   interface ParsedText {
