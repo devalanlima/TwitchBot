@@ -248,7 +248,7 @@
   background: rgba(255, 255, 255, 0.03);
 }
 .p-editor-container .p-editor-toolbar.ql-snow .ql-picker.ql-expanded:not(.ql-icon-picker) .ql-picker-item {
-  padding: 0.75rem 1.25rem;
+  padding: 0.5rem 0.5rem;
 }
 .p-editor-container .p-editor-content {
   border-bottom-right-radius: 6px;
@@ -648,7 +648,7 @@
   }
   .p-autocomplete-panel .p-autocomplete-items .p-autocomplete-item {
     margin: 0;
-    padding: 0.75rem 1.25rem;
+    padding: 0.5rem 0.5rem;
     border: 0 none;
     color: rgba(255, 255, 255, 0.87);
     background: transparent;
@@ -674,7 +674,7 @@
   }
   .p-autocomplete-panel .p-autocomplete-items .p-autocomplete-item-group {
     margin: 0;
-    padding: 0.75rem 1.25rem;
+    padding: 0.5rem 0.5rem;
     color: rgba(255, 255, 255, 0.87);
     background: #333544;
     font-weight: 700;
@@ -1182,7 +1182,7 @@
   .p-cascadeselect .p-cascadeselect-label {
     background: transparent;
     border: 0 none;
-    padding: 0.75rem 0.75rem;
+    padding: 0.5rem 0.5rem;
   }
   .p-cascadeselect .p-cascadeselect-label.p-placeholder {
     color: rgba(255, 255, 255, 0.6);
@@ -1238,7 +1238,7 @@
     background: rgba(255, 255, 255, 0.03);
   }
   .p-cascadeselect-panel .p-cascadeselect-items .p-cascadeselect-item .p-cascadeselect-item-content {
-    padding: 0.75rem 1.25rem;
+    padding: 0.5rem 0.5rem;
   }
   .p-cascadeselect-panel .p-cascadeselect-items .p-cascadeselect-item .p-cascadeselect-group-icon {
     font-size: 0.875rem;
@@ -1620,7 +1620,7 @@
     box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
   }
   .p-dropdown-panel .p-dropdown-header {
-    padding: 0.75rem 1.25rem;
+    padding: 0.5rem 0.5rem;
     border-bottom: 1px solid #3e4053;
     color: rgba(255, 255, 255, 0.87);
     background: #282936;
@@ -1641,7 +1641,7 @@
   }
   .p-dropdown-panel .p-dropdown-items .p-dropdown-item {
     margin: 0;
-    padding: 0.75rem 1.25rem;
+    padding: 0.5rem 0.5rem;
     border: 0 none;
     color: rgba(255, 255, 255, 0.87);
     background: transparent;
@@ -1672,13 +1672,13 @@
   }
   .p-dropdown-panel .p-dropdown-items .p-dropdown-item-group {
     margin: 0;
-    padding: 0.75rem 1.25rem;
+    padding: 0.5rem 0.5rem;
     color: rgba(255, 255, 255, 0.87);
     background: #333544;
     font-weight: 700;
   }
   .p-dropdown-panel .p-dropdown-items .p-dropdown-empty-message {
-    padding: 0.75rem 1.25rem;
+    padding: 0.5rem 0.5rem;
     color: rgba(255, 255, 255, 0.87);
     background: transparent;
   }
@@ -1782,7 +1782,7 @@
     border-top: 1px solid #3e4053;
     border-left: 1px solid #3e4053;
     border-bottom: 1px solid #3e4053;
-    padding: 0.75rem 0.75rem;
+    padding: 0.5rem 0.5rem;
     min-width: 3rem;
   }
   .p-inputgroup-addon:last-child {
@@ -2064,7 +2064,7 @@
     font-size: 1rem;
     color: rgba(255, 255, 255, 0.87);
     background: #1d1e27;
-    padding: 0.75rem 0.75rem;
+    padding: 0.5rem 0.5rem;
     border: 1px solid #3e4053;
     transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
     appearance: none;
@@ -2223,7 +2223,7 @@
     outline-color: transparent;
   }
   .p-listbox .p-listbox-header {
-    padding: 0.75rem 1.25rem;
+    padding: 0.5rem 0.5rem;
     border-bottom: 1px solid #3e4053;
     color: rgba(255, 255, 255, 0.87);
     background: #282936;
@@ -2244,7 +2244,7 @@
   }
   .p-listbox .p-listbox-list .p-listbox-item {
     margin: 0;
-    padding: 0.75rem 1.25rem;
+    padding: 0.5rem 0.5rem;
     border: 0 none;
     color: rgba(255, 255, 255, 0.87);
     transition: box-shadow 0.2s;
@@ -2262,13 +2262,13 @@
   }
   .p-listbox .p-listbox-list .p-listbox-item-group {
     margin: 0;
-    padding: 0.75rem 1.25rem;
+    padding: 0.5rem 0.5rem;
     color: rgba(255, 255, 255, 0.87);
     background: #333544;
     font-weight: 700;
   }
   .p-listbox .p-listbox-list .p-listbox-empty-message {
-    padding: 0.75rem 1.25rem;
+    padding: 0.5rem 0.5rem;
     color: rgba(255, 255, 255, 0.87);
     background: transparent;
   }
@@ -2429,7 +2429,7 @@
     background-color: #3e4053;
   }
   .p-multiselect .p-multiselect-label {
-    padding: 0.75rem 0.75rem;
+    padding: 0.5rem 0.5rem;
     transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
   }
   .p-multiselect .p-multiselect-label.p-placeholder {
@@ -2468,7 +2468,7 @@
     box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
   }
   .p-multiselect-panel .p-multiselect-header {
-    padding: 0.75rem 1.25rem;
+    padding: 0.5rem 0.5rem;
     border-bottom: 1px solid #3e4053;
     color: rgba(255, 255, 255, 0.87);
     background: #282936;
@@ -2512,7 +2512,7 @@
   }
   .p-multiselect-panel .p-multiselect-items .p-multiselect-item {
     margin: 0;
-    padding: 0.75rem 1.25rem;
+    padding: 0.5rem 0.5rem;
     border: 0 none;
     color: rgba(255, 255, 255, 0.87);
     background: transparent;
@@ -2541,13 +2541,13 @@
   }
   .p-multiselect-panel .p-multiselect-items .p-multiselect-item-group {
     margin: 0;
-    padding: 0.75rem 1.25rem;
+    padding: 0.5rem 0.5rem;
     color: rgba(255, 255, 255, 0.87);
     background: #333544;
     font-weight: 700;
   }
   .p-multiselect-panel .p-multiselect-items .p-multiselect-empty-message {
-    padding: 0.75rem 1.25rem;
+    padding: 0.5rem 0.5rem;
     color: rgba(255, 255, 255, 0.87);
     background: transparent;
   }
@@ -2976,7 +2976,7 @@
     background-color: #3e4053;
   }
   .p-treeselect .p-treeselect-label {
-    padding: 0.75rem 0.75rem;
+    padding: 0.5rem 0.5rem;
     transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
   }
   .p-treeselect .p-treeselect-label.p-placeholder {
@@ -3015,7 +3015,7 @@
     border: 0 none;
   }
   .p-treeselect-panel .p-treeselect-items-wrapper .p-treeselect-empty-message {
-    padding: 0.75rem 1.25rem;
+    padding: 0.5rem 0.5rem;
     color: rgba(255, 255, 255, 0.87);
     background: transparent;
   }
@@ -3180,7 +3180,7 @@
     color: #1c1d26;
     background: #b19df7;
     border: 1px solid #b19df7;
-    padding: 0.75rem 1.25rem;
+    padding: 0.5rem .5rem;
     font-size: 1rem;
     transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
     border-radius: 6px;
@@ -3284,8 +3284,8 @@
     border-radius: 2rem;
   }
   .p-button.p-button-icon-only {
-    width: 3rem;
-    padding: 0.75rem 0;
+
+    padding: 0.25rem;
   }
   .p-button.p-button-icon-only .p-button-icon-left,
 .p-button.p-button-icon-only .p-button-icon-right {
@@ -3293,7 +3293,7 @@
   }
   .p-button.p-button-icon-only.p-button-rounded {
     border-radius: 50%;
-    height: 3rem;
+
   }
   .p-button.p-button-sm {
     font-size: 0.875rem;
@@ -4264,7 +4264,7 @@
     color: rgba(255, 255, 255, 0.6);
     border: 1px solid #3e4053;
     border-width: 0 0 1px 0;
-    padding: 1rem 1rem;
+    padding: .5rem .5rem;
     font-weight: 700;
   }
   .p-datatable .p-datatable-footer {
@@ -4272,12 +4272,12 @@
     color: rgba(255, 255, 255, 0.87);
     border: 1px solid #3e4053;
     border-width: 0 0 1px 0;
-    padding: 1rem 1rem;
+    padding: .5rem .5rem;
     font-weight: 700;
   }
   .p-datatable .p-datatable-thead > tr > th {
     text-align: left;
-    padding: 1rem 1rem;
+    padding: .5rem .5rem;
     border: 1px solid #3e4053;
     border-width: 0 0 1px 0;
     font-weight: 700;
@@ -4287,7 +4287,7 @@
   }
   .p-datatable .p-datatable-tfoot > tr > td {
     text-align: left;
-    padding: 1rem 1rem;
+    padding: .5rem .5rem;
     border: 1px solid #3e4053;
     border-width: 0 0 1px 0;
     font-weight: 700;
@@ -4341,7 +4341,7 @@
     text-align: left;
     border: 1px solid #3e4053;
     border-width: 0 0 1px 0;
-    padding: 1rem 1rem;
+    padding: .5rem .5rem;
   }
   .p-datatable .p-datatable-tbody > tr > td .p-row-toggler,
 .p-datatable .p-datatable-tbody > tr > td .p-row-editor-init,
@@ -4526,7 +4526,7 @@
     color: rgba(255, 255, 255, 0.6);
     border: 1px solid #3e4053;
     border-width: 0 0 1px 0;
-    padding: 1rem 1rem;
+    padding: .5rem .5rem;
     font-weight: 700;
   }
   .p-dataview .p-dataview-content {
@@ -4540,7 +4540,7 @@
     color: rgba(255, 255, 255, 0.87);
     border: 1px solid #3e4053;
     border-width: 0 0 1px 0;
-    padding: 1rem 1rem;
+    padding: .5rem .5rem;
     font-weight: 700;
     border-bottom-left-radius: 6px;
     border-bottom-right-radius: 6px;
@@ -4614,7 +4614,7 @@
   }
   .p-column-filter-overlay .p-column-filter-row-items .p-column-filter-row-item {
     margin: 0;
-    padding: 0.75rem 1.25rem;
+    padding: 0.5rem 0.5rem;
     border: 0 none;
     color: rgba(255, 255, 255, 0.87);
     background: transparent;
@@ -4646,7 +4646,7 @@
   }
 
   .p-column-filter-overlay-menu .p-column-filter-operator {
-    padding: 0.75rem 1.25rem;
+    padding: 0.5rem 0.5rem;
     border-bottom: 1px solid #3e4053;
     color: rgba(255, 255, 255, 0.87);
     background: #282936;
@@ -4668,7 +4668,7 @@
     border-bottom: 0 none;
   }
   .p-column-filter-overlay-menu .p-column-filter-add-rule {
-    padding: 0.75rem 1.25rem;
+    padding: 0.5rem 0.5rem;
   }
   .p-column-filter-overlay-menu .p-column-filter-buttonbar {
     padding: 1.25rem;
@@ -4745,7 +4745,7 @@
     border-top: 1px solid #3e4053;
   }
   .p-orderlist .p-orderlist-list .p-orderlist-item {
-    padding: 0.75rem 1.25rem;
+    padding: 0.5rem 0.5rem;
     margin: 0;
     border: 0 none;
     color: rgba(255, 255, 255, 0.87);
@@ -5066,7 +5066,7 @@
     border-top: 1px solid #3e4053;
   }
   .p-picklist .p-picklist-list .p-picklist-item {
-    padding: 0.75rem 1.25rem;
+    padding: 0.5rem 0.5rem;
     margin: 0;
     border: 0 none;
     color: rgba(255, 255, 255, 0.87);
@@ -5595,7 +5595,7 @@
     color: rgba(255, 255, 255, 0.6);
     border: 1px solid #3e4053;
     border-width: 0 0 1px 0;
-    padding: 1rem 1rem;
+    padding: .5rem .5rem;
     font-weight: 700;
   }
   .p-treetable .p-treetable-footer {
@@ -5603,12 +5603,12 @@
     color: rgba(255, 255, 255, 0.87);
     border: 1px solid #3e4053;
     border-width: 0 0 1px 0;
-    padding: 1rem 1rem;
+    padding: .5rem .5rem;
     font-weight: 700;
   }
   .p-treetable .p-treetable-thead > tr > th {
     text-align: left;
-    padding: 1rem 1rem;
+    padding: .5rem .5rem;
     border: 1px solid #3e4053;
     border-width: 0 0 1px 0;
     font-weight: 700;
@@ -5618,7 +5618,7 @@
   }
   .p-treetable .p-treetable-tfoot > tr > td {
     text-align: left;
-    padding: 1rem 1rem;
+    padding: .5rem .5rem;
     border: 1px solid #3e4053;
     border-width: 0 0 1px 0;
     font-weight: 700;
@@ -5664,7 +5664,7 @@
     text-align: left;
     border: 1px solid #3e4053;
     border-width: 0 0 1px 0;
-    padding: 1rem 1rem;
+    padding: .5rem .5rem;
   }
   .p-treetable .p-treetable-tbody > tr > td .p-treetable-toggler {
     width: 2rem;
@@ -5798,7 +5798,7 @@
   }
 
   .p-accordion .p-accordion-header .p-accordion-header-link {
-    padding: 1.25rem;
+    padding: 1rem;
     border: 1px solid #3e4053;
     color: rgba(255, 255, 255, 0.87);
     background: #282936;
@@ -6069,7 +6069,7 @@
     box-shadow: 0 0 0 1px #e0d8fc;
   }
   .p-panel.p-panel-toggleable .p-panel-header {
-    padding: 0.75rem 1.25rem;
+    padding: 0.5rem 0.5rem;
   }
   .p-panel .p-panel-content {
     padding: 1.25rem;
@@ -6083,7 +6083,7 @@
     border-bottom-left-radius: 6px;
   }
   .p-panel .p-panel-footer {
-    padding: 0.75rem 1.25rem;
+    padding: 0.5rem 0.5rem;
     border: 1px solid #3e4053;
     background: #282936;
     color: rgba(255, 255, 255, 0.87);
@@ -7262,7 +7262,7 @@
   .p-tooltip .p-tooltip-text {
     background: #3e4053;
     color: rgba(255, 255, 255, 0.87);
-    padding: 0.75rem 0.75rem;
+    padding: 0.5rem 0.5rem;
     box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
     border-radius: 6px;
   }
@@ -7370,7 +7370,7 @@
     height: 0.25rem;
   }
   .p-fileupload .p-fileupload-row > div {
-    padding: 1rem 1rem;
+    padding: .5rem .5rem;
   }
   .p-fileupload.p-fileupload-advanced .p-message {
     margin-top: 0;
@@ -7529,7 +7529,7 @@
   }
   .p-contextmenu .p-menuitem > .p-menuitem-content .p-menuitem-link {
     color: rgba(255, 255, 255, 0.87);
-    padding: 0.75rem 1.25rem;
+    padding: 0.5rem 0.5rem;
     user-select: none;
   }
   .p-contextmenu .p-menuitem > .p-menuitem-content .p-menuitem-link .p-menuitem-text {
@@ -7957,7 +7957,7 @@
   }
   .p-megamenu .p-menuitem > .p-menuitem-content .p-menuitem-link {
     color: rgba(255, 255, 255, 0.87);
-    padding: 0.75rem 1.25rem;
+    padding: 0.5rem 0.5rem;
     user-select: none;
   }
   .p-megamenu .p-menuitem > .p-menuitem-content .p-menuitem-link .p-menuitem-text {
@@ -8022,7 +8022,7 @@
   }
   .p-megamenu .p-submenu-header {
     margin: 0;
-    padding: 0.75rem 1.25rem;
+    padding: 0.5rem 0.5rem;
     color: rgba(255, 255, 255, 0.87);
     background: #333544;
     font-weight: 700;
@@ -8047,7 +8047,7 @@
     border-radius: 6px;
   }
   .p-megamenu.p-megamenu-horizontal .p-megamenu-root-list > .p-menuitem > .p-menuitem-content .p-menuitem-link {
-    padding: 0.75rem 1.25rem;
+    padding: 0.5rem 0.5rem;
     user-select: none;
   }
   .p-megamenu.p-megamenu-horizontal .p-megamenu-root-list > .p-menuitem > .p-menuitem-content .p-menuitem-link .p-menuitem-text {
@@ -8166,7 +8166,7 @@
   }
   .p-menu .p-menuitem > .p-menuitem-content .p-menuitem-link {
     color: rgba(255, 255, 255, 0.87);
-    padding: 0.75rem 1.25rem;
+    padding: 0.5rem 0.5rem;
     user-select: none;
   }
   .p-menu .p-menuitem > .p-menuitem-content .p-menuitem-link .p-menuitem-text {
@@ -8229,7 +8229,7 @@
   }
   .p-menu .p-submenu-header {
     margin: 0;
-    padding: 0.75rem 1.25rem;
+    padding: 0.5rem 0.5rem;
     color: rgba(255, 255, 255, 0.87);
     background: #333544;
     font-weight: 700;
@@ -8363,7 +8363,7 @@
     border-radius: 6px;
   }
   .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-content .p-menuitem-link {
-    padding: 0.75rem 1.25rem;
+    padding: 0.5rem 0.5rem;
     user-select: none;
   }
   .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-content .p-menuitem-link .p-menuitem-text {
@@ -8403,7 +8403,7 @@
   }
   .p-menubar .p-menuitem > .p-menuitem-content .p-menuitem-link {
     color: rgba(255, 255, 255, 0.87);
-    padding: 0.75rem 1.25rem;
+    padding: 0.5rem 0.5rem;
     user-select: none;
   }
   .p-menubar .p-menuitem > .p-menuitem-content .p-menuitem-link .p-menuitem-text {
@@ -8642,7 +8642,7 @@
   }
   .p-panelmenu .p-panelmenu-content .p-menuitem > .p-menuitem-content .p-menuitem-link {
     color: rgba(255, 255, 255, 0.87);
-    padding: 0.75rem 1.25rem;
+    padding: 0.5rem 0.5rem;
     user-select: none;
   }
   .p-panelmenu .p-panelmenu-content .p-menuitem > .p-menuitem-content .p-menuitem-link .p-menuitem-text {
@@ -8980,7 +8980,7 @@
   }
   .p-tieredmenu .p-menuitem > .p-menuitem-content .p-menuitem-link {
     color: rgba(255, 255, 255, 0.87);
-    padding: 0.75rem 1.25rem;
+    padding: 0.5rem 0.5rem;
     user-select: none;
   }
   .p-tieredmenu .p-menuitem > .p-menuitem-content .p-menuitem-link .p-menuitem-text {
@@ -9069,7 +9069,7 @@
   }
 
   .p-inline-message {
-    padding: 0.75rem 0.75rem;
+    padding: 0.5rem 0.5rem;
     margin: 0;
     border-radius: 6px;
   }
@@ -10160,7 +10160,7 @@
   }
 
   .p-inplace .p-inplace-display {
-    padding: 0.75rem 0.75rem;
+    padding: 0.5rem 0.5rem;
     border-radius: 6px;
     transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
     outline-color: transparent;
