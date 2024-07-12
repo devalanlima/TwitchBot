@@ -1,20 +1,17 @@
 <template>
-  <div>
     <input
     ref="$input"
-    class="outline-none placeholder:opacity-60 placeholder:font-thin max-w-[70px] bg-[var(--surface-f)]"
+    class="outline-none placeholder:opacity-60 placeholder:font-thin"
     autofocus
     :class="inputValue.length === 0 && 'animate-pulse'"
     v-model="inputValue"
     @keyup.enter="updateValue"
-    placeholder="channel"
     />
-  </div>
 </template>
 
 <script setup lang="ts">
 interface Props {
-  focus: boolean;
+  focus?: boolean;
 }
 
 const inputValue = ref('');
