@@ -28,9 +28,8 @@ export default oauth.twitchEventHandler({
       user: {
         id: user.id,
         tokens: tokens,
+        loggedInAt: formatedDateTime(),
       },
-      //@ts-ignore
-      loggedInAt: formatedDateTime(),
     })
     return sendRedirect(event, '/')
   },

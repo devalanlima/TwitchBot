@@ -9,6 +9,7 @@ declare module '#auth-utils' {
       "scope": Array<string>, 
       "token_type": string 
     },
+  "loggedInAt": string,
   }
 }
 
