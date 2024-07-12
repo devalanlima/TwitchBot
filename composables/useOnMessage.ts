@@ -42,11 +42,27 @@ export default async function useOnMessage (chatClient: ChatClient, commands?: A
     return list[~~(Math.random() * list.length)];
   };
 
+  const replaceVariables = (message: string, sender: string, channel: string) => {
+    let replacedMessage: string = message;
+
+    if (message.includes('#{sender}')) {     
+      replacedMessage = replacedMessage.replace(/#{sender}/g, sender);
+    };
+    if (message.includes('#{channel}')) {
+      replacedMessage = replacedMessage.replace(/#{channel}/g, channel);
+    };
+
+    return replacedMessage
+  }
+
   chatListener = chatClient.onMessage(async (channel: string, user: string, text: string, msg: ChatMessage)=>{
     commands && commands.map(async (command) => {
       if (keywordsExistsInText(command.keywordSet, text)) {
-        const response = pickRandom(command.responses);
-        useSayChat(chatClient, response, channel)
+        console.log('teste');
+        
+        const randomResponse: Responses = pickRandom(command.responses);
+        const response = replaceVariables(randomResponse.response, user, channel);
+        useSayChat(chatClient, response, channel);
       }
     });
     
