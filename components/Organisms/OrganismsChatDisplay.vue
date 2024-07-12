@@ -37,6 +37,8 @@
         <template #header>
             <div class="flex gap-2">
               <AtomsBaseInput
+                placeholder="channel"
+                class="bg-[var(--surface-f)]"
                 :focus="true"
                 v-if="isAddingChannel"
                 @input-value="handleChannelName"
