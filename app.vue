@@ -1,12 +1,30 @@
 <template>
-  <div class="flex flex-col gap-10 pt-10">
-    <div class="mx-auto w-fit">
-      <Button @click="checked = !checked" />
+  <div class="flex justify-between">
+    <div>
+      <OrganismsChatDisplay/>
     </div>
-    <div :class="['block w-32 h-32 mx-auto rounded-2xl outline outline-[3px] outline-[var(--surface-d)]', checked ? 'bg-[var(--surface-d)]' : 'bg-[var(--surface-e)]']"/>
+
+    <div>
+      <OrganismsCommands/>
+    </div>
+
+    <div v-if="loggedIn">
+      <h1>Welcome {{ userId }}!</h1>
+      <p>Session expires in {{ session.user?.tokens.expires_in }}</p>
+      <p>session: {{ user?.loggedInAt }}</p>
+      <button @click="clear">Logout</button>      
+    </div>
+
+    <div v-else>
+      <h1>Not logged in</h1>
+      <a href="/auth/twitch">Login with Twitch</a>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
-const checked = ref(true)
+const { loggedIn, user, session, clear } = useUserSession();
+
+const userId = user.value?.id;
+
 </script>
