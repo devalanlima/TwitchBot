@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col gap-2">
-    <Chips class="w-full" v-model="keywordSet" :max="10" @add="onAdd" @remove="onRemove"  :invalid="isInvalid">
+    <Chips class="w-full" v-model="keywordSet" :max="20" @add="onAdd" @remove="onRemove"  :invalid="isInvalid">
       <template #chip="slotProps">
         <div class="flex gap-1 items-center justify-between">
           <Checkbox v-model="slotProps.value.isExact" :binary="true" v-tooltip.top="toolTipText" />
@@ -20,7 +20,9 @@
   
   const props = defineProps<Props>();
   
-  const emit = defineEmits(["updateValue"]);
+  const emit = defineEmits<{
+    "update:keywordSet": [value: typeof props.keywordSet]
+  }>();
   
   const keywordSet = ref(props.keywordSet);
   
@@ -43,12 +45,12 @@
         isExact: false,
         keyword: event.value[event.value.length -1]
       } 
-      emit("updateValue", keywordSet.value);
+      emit("update:keywordSet", keywordSet.value);
     } 
   }
   
   const onRemove = () =>{
-    emit("updateValue", keywordSet.value);
+    emit("update:keywordSet", keywordSet.value);
   }
   
   const toolTipText = `Exact Match
