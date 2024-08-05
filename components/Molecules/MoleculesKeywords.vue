@@ -7,20 +7,14 @@
       <div class="flex flex-col gap-2 items-center w-full">
         Keywords:
         <MoleculesChips
-        :keyword-set="command.keywordSet.firstKeywordSet" 
-        @update-value="(updatedValue: Array<Keyword>) => {
-          command.keywordSet.firstKeywordSet = updatedValue
-        }"
+        v-model:keyword-set="command.keywordSet.firstKeywordSet" 
         />
       </div>
       <i class="pi pi-plus" v-if="selectButtonValue === 'Keyword Pair'"></i>
       <div class="flex flex-col gap-2 items-center" v-if="selectButtonValue === 'Keyword Pair'">
         Keywords:
         <MoleculesChips         
-        :keyword-set="command.keywordSet.secondKeywordSet" 
-        @update-value="(updatedValue: Array<Keyword>) => {
-          command.keywordSet.secondKeywordSet = updatedValue
-        }"
+        v-model:keyword-set="command.keywordSet.secondKeywordSet"
         />
       </div>
     </div>
@@ -35,14 +29,7 @@ type SelecButton = 'Single Keyword' | 'Keyword Pair';
 const selectButtonValue = ref<SelecButton>('Single Keyword');
 const options = ref<Array<SelecButton>>(['Single Keyword', 'Keyword Pair']);
 
-watch(
-  () => selectButtonValue.value,
-  (newValue) => {
-    if (newValue === 'Single Keyword' && command.value.keywordSet.secondKeywordSet) {
-      delete command.value.keywordSet.secondKeywordSet
-    }
-  }
-)
+const backupSecondKeywordSet = ref();
 
 interface Props {
   command: ChatCommand;
@@ -56,10 +43,29 @@ const emit = defineEmits<{
 
 const command = computed({
   get() {
-    return props.command
+    return props.command;
   },
   set(commands) {
-    emit("update:commands", commands)
-  }
-})
+    emit("update:commands", commands);
+  },
+});
+
+onMounted(
+  () => {
+    if (command.value.keywordSet.secondKeywordSet) {
+      selectButtonValue.value = 'Keyword Pair'
+    };
+    watch(
+      selectButtonValue,
+      (newValue) => {
+        if (newValue === 'Single Keyword' && command.value.keywordSet.secondKeywordSet) {
+          backupSecondKeywordSet.value = command.value.keywordSet.secondKeywordSet
+          delete command.value.keywordSet.secondKeywordSet
+        } else if (newValue === 'Keyword Pair') {
+          command.value.keywordSet.secondKeywordSet = backupSecondKeywordSet.value
+        };
+      },
+    );
+  },
+);
 </script>
